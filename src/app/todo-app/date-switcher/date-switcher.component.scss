@@ -1,0 +1,14 @@
+.switcher-wrapper{
+    margin-bottom: 3px;
+    display: flex;
+}
+
+#date-picker.form-input{
+    flex: 2;
+    margin: 0 3px;
+    border: .05rem solid #5755d9;
+}
+
+button{
+    flex:1;
+}

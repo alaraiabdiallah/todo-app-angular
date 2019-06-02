@@ -1,0 +1,48 @@
+<div class="navbar-wrapper">
+  <header class="navbar container">
+    <section class="navbar-section">
+      
+      <div class="off-canvas">
+        <!-- off-screen toggle button -->
+        <a class="off-canvas-toggle btn btn-primary btn-action show-sm show-xs" (click)="sidebarOpen()">
+          <i class="icon icon-menu"></i>
+        </a>
+
+        <div class="off-canvas-sidebar" [class.active]="sidebarOpened">
+          <ul class="menu">
+            <li class="menu-item">
+              <a routerLink="/todo" class="btn btn-link">To do</a>
+            </li>
+            <li class="menu-item">
+              <a routerLink="/test" class="btn btn-link">Pomodoro</a>
+            </li>
+          </ul>
+        </div>
+
+        <a class="off-canvas-overlay" (click)="sidebarClose()"></a>
+
+        <div class="off-canvas-content hide-sm hide-xs">
+          <a routerLink="/todo" class="btn btn-link">To do</a>
+          <a routerLink="/test" class="btn btn-link">Pomodoro</a>
+        </div>
+      </div>
+    </section>
+    <section class="navbar-center">
+      <a routerLink="/" class="btn btn-link"><strong>ProSuite</strong></a>
+    </section>
+    <section class="navbar-section">
+      <div class="dropdown dropdown-right">
+        <a class="user-profile dropdown-toggle" tabindex="0">
+          <figure class="avatar">
+            <img src="assets/avatar.png" alt="avatar">
+          </figure>
+          <!-- <span>Username <i class="icon icon-caret"></i></span> -->
+        </a>
+          <ul class="menu">
+            <li class="menu-item"><a href="#">Profile</a></li>
+            <li class="menu-item"><a href="javascript:void(0)" (click)="logout()">Logout</a></li>
+          </ul>
+      </div>
+    </section>
+  </header>
+</div>

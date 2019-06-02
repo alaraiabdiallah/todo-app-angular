@@ -1,0 +1,22 @@
+<div class="columns">
+  <div class="col-4 col-lg-6 col-md-6 col-sm-12 col-xs-12" style="padding: 0 10px; margin:0 auto;">
+    <form class="switcher-wrapper form-horizontal">
+      <button type="button" class="btn" (click)="yesterday()">
+        <i class="icon icon-arrow-left"></i>
+        Prev
+      </button>
+      <input class="form-input" 
+            #datePicker
+            type="date" 
+            name="date-picker" 
+            id="date-picker" 
+            placeholder="Date Picker"
+            [value]="currDate.formatted"
+            (change)="datepickerChange(datePicker.value)" />
+      <button type="button" class="btn" (click)="tomorrow()">
+        Next
+        <i class="icon icon-arrow-right"></i>
+      </button>
+    </form>
+  </div>
+</div>

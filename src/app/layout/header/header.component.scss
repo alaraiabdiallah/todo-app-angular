@@ -1,0 +1,37 @@
+.navbar-wrapper{
+    background: #eee;
+    padding: 10px 0;
+}
+
+.user-profile{
+    border: 1px solid #5755d9;
+    border-radius: 30px;
+    padding: 3px;
+    text-decoration: none;
+    cursor: pointer;
+    display:inline-block!important;
+
+    span{
+        font-size: .7rem;
+        padding: 0 10px;
+    }
+
+    &:hover{
+        background: #5755d9;
+        transition: all .2s;
+    }
+
+    &:hover span{
+        color: #fff;
+    }
+    @media screen and (max-width: 450px) {
+      span{
+          display:none;
+          padding: 0;
+      }
+
+      .avatar{
+          margin: 0!important;
+      }
+    }
+}

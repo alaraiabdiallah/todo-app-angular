@@ -1,0 +1,48 @@
+<main-layout>
+  <todo-date-switcher (onDateChange)="handleDateChange($event)"></todo-date-switcher>
+  <div class="columns">
+    <div id="todos-wrapper" class="column col-4 col-sm-12 col-xs-12">
+      <ul class="menu" todolist cdkDropList
+        title="Todo"
+        id="todos"
+        [todos]="todos"
+        #todoDropList="cdkDropList"
+        [cdkDropListData]="todos"
+        [cdkDropListConnectedTo]="[doingDropList,doneDropList]"
+        (cdkDropListDropped)="drop($event)">
+        <li class="menu-item" *ngFor="let todo of todos" todoitem [todo]="todo" cdkDrag>
+        </li>
+         <li class="menu-item" [class.loading]="loadingState.todos" *ngIf="loadingState.todos"></li>
+      </ul>
+      <button style="z-index: -1;" class="btn btn-primary btn-sm btn-add hide-xs hide-sm" (click)="add()"
+      *ngIf="currDate.formatted >= today">Add New Todo</button>
+    </div>
+    <div id="doings-wrapper" class="column col-4 col-sm-12 col-xs-12">
+      <ul class="menu" todolist cdkDropList
+        title="Doing"
+        id="doings"
+        #doingDropList="cdkDropList"
+        [cdkDropListData]="doings"
+        [cdkDropListConnectedTo]="[todoDropList,doneDropList]"
+        (cdkDropListDropped)="drop($event)">
+        <li class="menu-item" *ngFor="let todo of doings" todoitem [todo]="todo" cdkDrag>
+        </li>
+        <li class="menu-item" [class.loading]="loadingState.doings" *ngIf="loadingState.doings"></li>
+      </ul>
+    </div>
+    <div id="dones-wrapper" class="column col-4 col-sm-12 col-xs-12">
+      <ul class="menu" todolist cdkDropList
+        title="Done"
+        id="dones"
+        #doneDropList="cdkDropList"
+        [cdkDropListData]="dones"
+        [cdkDropListConnectedTo]="[doingDropList,todoDropList]"
+        (cdkDropListDropped)="drop($event)">
+        <li class="menu-item" *ngFor="let todo of dones" todoitem [todo]="todo" cdkDrag></li>
+        <li class="menu-item" [class.loading]="loadingState.dones" *ngIf="loadingState.dones"></li>
+      </ul>
+    </div>
+  </div>
+  <button class="btn btn-action btn-primary s-circle show-xs show-sm btn-add-mbl" (click)="add()"
+    title="Add New Todo"><i class="icon icon-plus"></i></button>
+</main-layout>

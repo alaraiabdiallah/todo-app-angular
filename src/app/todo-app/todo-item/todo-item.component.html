@@ -1,0 +1,26 @@
+<ng-container *ngIf="todo != undefined">
+  <ng-container *ngIf="todo.props == undefined">
+    <span class="todo-list" (click)="view()">{{ todo.title }}</span>
+    <div class="menu-badge dropdown dropdown-right">
+      <button class="btn btn-link dropdown-toggle" tabindex="2"><i class="icon icon-more-vert"></i></button>
+      <ul class="menu">
+        <li class="menu-item"><a (click)="deleteTodo(todo.id)">Delete</a></li>
+        <li class="menu-item" *ngIf="todo.type == 2"><a>Pomodoro</a></li>
+      </ul>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="(todo.props != undefined) && (todo.props.onEdit)">
+    <form class="form-horizontal">
+      <div class="form-group">
+        <div class="col-9 col-sm-9">
+          <input class="form-input" #titleInput type="text" name="title" [(ngModel)]="todo.title" placeholder="Title">
+        </div>
+        <div class="col-3 col-sm-3 text-right action">
+          <button type="submit" class="btn btn-primary" (click)="save()"><i class="icon icon-check"></i></button>
+          <button type="button" class="btn btn-primary" (click)="cancelForm()"><i class="icon icon-cross"></i></button>
+        </div>
+      </div>
+    </form>
+  </ng-container>
+</ng-container>

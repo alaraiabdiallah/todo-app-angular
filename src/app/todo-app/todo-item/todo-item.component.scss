@@ -1,0 +1,21 @@
+span.todo-list{
+    border-radius: .1rem;
+    color: inherit;
+    display: block!important;
+    margin: 0 -.4rem;
+    padding: .2rem .4rem;
+    text-decoration: none;
+    cursor: pointer;
+
+    &:hover{
+        background: #f1f1fc;
+        color: #5755d9;
+    }
+}
+
+.action {
+    .btn{
+        margin: 0 2px;
+    }
+}
+    

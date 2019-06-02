@@ -1,0 +1,57 @@
+<ng-container *ngIf="data.action == 'edit'">
+  <h3>Edit</h3>
+  <form>
+    <div class="form-group">
+      <label class="form-label" for="title">Title</label>
+      <input class="form-input" type="text" id="title" name="title" [(ngModel)]="data.todo.title" placeholder="Title">
+    </div>
+    <div class="form-group">
+      <label class="form-label" for="description">Description</label>
+      <textarea class="form-input" id="description" name="description" [(ngModel)]="data.todo.description" rows="5"
+        placeholder="Description"></textarea>
+    </div>
+    <div class="form-group">
+      <label class="form-label" for="type">Type</label>
+      <select name="type" id="type" class="form-input" [(ngModel)]="data.todo.type">
+        <option *ngFor="let type of todoTypes;let i = index"
+        [value]="i + 1"
+        [selected]="data.todo.type == (i+1)"
+        >{{ type }}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label class="form-label" for="date">Date</label>
+      <input class="form-input" type="date" id="date" name="date" [(ngModel)]="data.todo.date">
+    </div>
+    <div class="form-group">
+      <br />
+      <button type="submit" class="btn btn-primary" (click)="save()">Save</button>&nbsp;
+      <button type="button" class="btn btn-primary" (click)="view()">Cancel</button>
+    </div>
+  </form>
+</ng-container>
+
+<ng-container *ngIf="data.action == 'view'">
+    <h3>View</h3>
+    <div class="form-group">
+      <label class="form-label" for="title">Title</label>
+      <input class="form-input" disabled type="text" id="title" name="title" [value]="data.todo.title">
+    </div>
+    <div class="form-group">
+      <label class="form-label" for="description">Description</label>
+      <textarea class="form-input" disabled id="description" name="description" [value]="data.todo.description" rows="5"></textarea>
+    </div>
+    <div class="form-group">
+      <label class="form-label" for="type">Type</label>
+      <input class="form-input" disabled type="text" id="type" name="type" [value]="getTypeName(data.todo.type)">
+    </div>
+    <div class="form-group">
+      <label class="form-label" for="date">Date</label>
+      <input class="form-input" disabled type="date" id="date" name="date" [value]="data.todo.date">
+    </div>
+    <div class="form-group">
+      <br />
+      <button class="btn btn-primary" (click)="edit()">Edit</button>&nbsp;
+      <button class="btn btn-primary" (click)="close()">Close</button>
+    </div>
+</ng-container>
